@@ -7,7 +7,7 @@ module.exports.getAllTasks = async (req, res, next) => {
 module.exports.createNewTask = (req, res, next) => {
   const body = req.body;
   if (body.hasOwnProperty('text') && body.hasOwnProperty('isCheck')) {
-    body.id = tasks.length + 1;
+    body.id = Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);
     tasks.push(body);
     res.send({data: tasks});
   } else {
