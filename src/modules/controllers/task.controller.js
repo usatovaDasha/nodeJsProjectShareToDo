@@ -36,7 +36,7 @@ module.exports.deleteTask = (req, res, next) => {
   const task = tasks.filter(item => item.id === +req.query.id);
   if (task.length) {
     tasks.forEach((item, i) => {
-      if(item.id === +req.query.id) {
+      if(item.id === req.query.id) {
         tasks.splice(i, 1);
       }
     });
