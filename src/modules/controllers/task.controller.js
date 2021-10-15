@@ -33,7 +33,7 @@ module.exports.changeTaskInfo = (req, res, next) => {
 
 module.exports.deleteTask = (req, res, next) => {
   if (!req.query.id) return res.status(422).send('Error! Params not correct');
-  const task = tasks.filter(item => item.id === +req.query.id);
+  const task = tasks.filter(item => item.id === req.query.id);
   if (task.length) {
     tasks.forEach((item, i) => {
       if(item.id === req.query.id) {
